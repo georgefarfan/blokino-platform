@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>
+      Blokino - Plataforma para programar objetos fisicos en las
+      escuelas
+    </title>
+    <link rel="stylesheet" href="./style/app.css" />
+  </head>
+
+  <body>
+    <div class="welcome">
+      <div class="container">
+        <div class="row" id="blokino-welcome">
+          <div class="col col-lg-5 col-sm-12 col-md-12 right-dots">
+            <div class="d-flex flex-column align-items-center">
+              <blo-image
+                src="./src/images/blokino-logo.svg"
+                size="medium"
+              ></blo-image>
+              <h1
+                class="font-50 font-weight-bold mt-3 mb-1 text-center blink"
+              >
+                Aprende a programar hardware con Blokino
+              </h1>
+            </div>
+          </div>
+
+          <div class="col-lg-7 col-sm-12 col-md-12 pt-5">
+            <section-block
+              path_style="./style/app.css"
+              title="Programemos"
+              description="Crea tus propios programas con el modo libre de <strong>Blokino</strong>."
+            ></section-block>
+
+            <section-block
+              path_style="./style/app.css"
+              title="Desafíos"
+              description="Antes de usar la plataforma de modo libre, se recomienda hacer los desafíos, que indican como se
+              debe usar <strong>Blokino</strong> y sus bloques funcionales."
+            ></section-block>
+            <section-block
+              path_style="./style/app.css"
+              title="NodeBots"
+              description="Conoce a los NodeBots y sus versiones, que soportan a la plataforma."
+            >
+            </section-block>
+
+            <section-block
+              path_style="./style/app.css"
+              title="La web de Blokino"
+              description="Si necesitas mirar la documentación o las actualizaciones que se van agregando a la plataforma, accede a la <strong>web de Blokino</strong>."
+            >
+            </section-block>
+
+            <div class="pb-1">
+              <blo-option page="challenges"></blo-option>
+              <blo-option page="nodeBot"></blo-option>
+              <blo-option page="expert"></blo-option>
+            </div>
+
+            <div class="dashboard__footer">
+              <i
+                class="devicons devicons-debian icon-blokino-medium"
+              ></i>
+              <i
+                class="devicons devicons-windows icon-blokino-medium"
+              ></i>
+              <i
+                class="devicons devicons-javascript_badge icon-blokino-medium"
+              ></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="node_modules/@webcomponents/webcomponentsjs/webcomponents-bundle.js"></script>
+    <script src="./resources/libs/font-awesome/js/fontawesome.min.js"></script>
+    <script src="./resources/blo/index.js"></script>
+  </body>
+</html>
