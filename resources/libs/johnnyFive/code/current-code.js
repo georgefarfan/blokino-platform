@@ -5,7 +5,7 @@ const jc = require('json-cycle'),
 let five = require('johnny-five');
 try {
   let board = new five.Board({
-    port: '/dev/tty.usbmodem1442101',
+    port: '/dev/tty.usbmodem1432101',
     repl: false,
     debug: false,
   });

@@ -9,7 +9,7 @@ const { app, BrowserWindow, Menu } = require('electron'),
   path = require('path'),
   log = console.log;
 
-console.log('Example code ...');
+require('electron-reload')(path.join(__dirname, 'src/'));
 
 let mainWindow;
 

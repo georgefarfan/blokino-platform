@@ -233,10 +233,10 @@ let settings = {
     }
   },
   beautify: (code) => {
-    return bloPlatform.beautify();
+    return bloPlatform.beautify(code);
   },
   codeMirror: (code) => {
-    return bloPlatform.mirror();
+    return bloPlatform.mirror(code);
   },
   blockly: (Blockly, typeToolBar) => {
     // Defino configuraciones globales para Blockly

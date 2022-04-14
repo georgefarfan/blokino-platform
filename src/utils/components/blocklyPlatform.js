@@ -36,7 +36,7 @@ const blocklyPlatform = class BlocklyPlatform {
     };
   }
 
-  beautify() {
+  beautify(code) {
     return {
       indent_size: 4,
       space_in_empty_paren: true,
@@ -45,7 +45,7 @@ const blocklyPlatform = class BlocklyPlatform {
     };
   }
 
-  mirror() {
+  mirror(code) {
     return {
       value: code,
       mode: 'javascript',

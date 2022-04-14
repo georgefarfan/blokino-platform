@@ -25,7 +25,7 @@
 
 #blokino-workspace {
   border-radius: 10px;
-  border: 5px solid #282a36;
+  border: 5px solid #504e4e;
 }
 
 .blocklyTreeLabel {
@@ -33,8 +33,8 @@
 }
 
 .blocklyToolboxDiv {
-  color: whitesmoke;
-  background-color: #202020 !important;
+  color: #dee2e6;
+  background-color: #343a40 !important;
 }
 
 .blocklyFlyout {
@@ -65,9 +65,8 @@
 }
 
 #blokino-console-body {
-  height: 12em;
+  height: 15em;
   overflow: overlay;
-  width: 50em;
   background: #161616;
   border: 4px solid #ccc;
 }
@@ -82,35 +81,35 @@
 }
 
 #blokino-messages {
-  animation: fade 1500ms infinite;
+  /*animation: fade 1500ms infinite;*/
 }
 
 .warning-message {
   color: #f3d179;
-  font-size: 22px;
+  font-size: 22px !important;
 }
 
 .info-message {
   color: #4a6c78;
-  font-size: 22px;
+  font-size: 22px !important;
 }
 
 .error-message {
   color: #c82333;
-  font-size: 22px;
+  font-size: 22px !important;
 }
 
 .remember-message {
   color: #236ac8;
-  font-size: 22px;
+  font-size: 22px !important;
 }
 
 .danger-message {
   color: #c86d23;
-  font-size: 22px;
+  font-size: 22px !important;
 }
 
 .initial-message {
   color: #997799;
-  font-size: 22px;
+  font-size: 22px !important;
 }

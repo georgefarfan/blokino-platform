@@ -10,7 +10,7 @@ const expertComponent = class ExpertComponent extends blocklyPlatform {
     return {
       main: {
         code: `<xml id="blokino-toolbox">
-                    <category name="Bloques" colour="270">
+                    <category name="Bloques" expanded="true" colour="270">
                     <category name="Variables" custom="VARIABLE" colour="315">
                     </category>
                     <sep gap="32"></sep>

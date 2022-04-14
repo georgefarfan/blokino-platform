@@ -1,5 +1,5 @@
 .body-challenges {
-  background: linear-gradient(to bottom, #282a36 0%, #552d55 100%);
+  background: linear-gradient(to bottom, #944e5d 0%, #b13945 100%);
   animation: fadeIn 0.4s linear;
   background-position: center;
   background-repeat: no-repeat;
@@ -21,6 +21,7 @@
 }
 
 .challenges p {
+  font-size: 14px;
   padding: 2em;
 }
 
@@ -105,7 +106,7 @@
 }
 
 .back_icon {
-  font-size: 50px;
+  font-size: 20px;
   font-weight: bold;
   padding: 5px;
 }
