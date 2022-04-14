@@ -7,22 +7,10 @@
 
 const // Components
   programComponent = require('./blocks/app-blocks'),
-  ledComponent = require('./blocks/led-blocks'),
-  ledRGBComponent = require('./blocks/led-rgb-blocks'),
-  buttonComponent = require('./blocks/button-blocks'),
-  potentiometerComponent = require('./blocks/potentiometer-blocks'),
-  functionsComponent = require('./blocks/function-blocks'),
-  joystickComponent = require('./blocks/joystick-blocks'),
-  buzzerComponent = require('./blocks/buzzer-blocks'),
-  screenMatrixComponent = require('./blocks/matrix-blocks'),
-  servoMotorComponent = require('./blocks/servomotor-blocks'),
   bumperComponent = require('./blocks/bumper-blocks'),
   proximityComponent = require('./blocks/proximity-blocks'),
-  keypadComponent = require('./blocks/keypad-blocks'),
   switchComponent = require('./blocks/switch-blocks'),
-  motionComponent = require('./blocks/motion-blocks'),
   microfonoComponent = require('./blocks/microphone-blocks'),
-  lcdComponent = require('./blocks/lcd-blocks'),
   motorComponent = require('./blocks/motor-blocks'),
   // Base
   ProgramCodeBase = require('../utils/program/blokino-program'),
@@ -48,7 +36,8 @@ const // Components
   SENSOR_MOTION_COMPONENT = require('./components/sensor-motion.component'),
   KEY_PAD_COMPONENT = require('./components/keypad.component'),
   MOTOR_COMPONENT = require('./components/motor.component'),
-  EXPERT_COMPONENT = require('./components/expert.component');
+  EXPERT_COMPONENT = require('./components/expert.component'),
+  Function = require('./components/function.component');
 
 let aboutPage,
   instanceHelpPage = 0;
@@ -68,7 +57,8 @@ const bloPlatform = new BLOCKLY_PLATFORM(),
   sensorMotion = new SENSOR_MOTION_COMPONENT(),
   keyPad = new KEY_PAD_COMPONENT(),
   motor = new MOTOR_COMPONENT(),
-  expert = new EXPERT_COMPONENT();
+  expert = new EXPERT_COMPONENT(),
+  functionComponent = new FUNCTION_COMPONENT();
 
 let settings = {
   urls: () => {
@@ -810,41 +800,44 @@ let settings = {
     Blockly.Xml.domToWorkspace(xml, workspace);
   },
   loadComponents: (Blockly) => {
-    // Componentes cargados
-    functionsComponent.block(Blockly);
-    functionsComponent.code(Blockly);
-    ledComponent.block(Blockly);
-    ledComponent.code(Blockly);
-    ledRGBComponent.block(Blockly);
-    ledRGBComponent.code(Blockly);
-    buttonComponent.block(Blockly);
-    buttonComponent.code(Blockly);
-    potentiometerComponent.block(Blockly);
-    potentiometerComponent.code(Blockly);
-    joystickComponent.block(Blockly);
-    joystickComponent.code(Blockly);
-    buzzerComponent.block(Blockly);
-    buzzerComponent.code(Blockly);
-    screenMatrixComponent.block(Blockly);
-    screenMatrixComponent.code(Blockly);
+    Function.block(Blockly);
+    Function.code(Blockly);
+    Led.block(Blockly);
+    Led.code(Blockly);
+    LedRGB.block(Blockly);
+    LedRGB.code(Blockly);
+    button.block(Blockly);
+    button.code(Blockly);
+    potentiometer.block(Blockly);
+    potentiometer.code(Blockly);
+    joystick.block(Blockly);
+    joystick.code(Blockly);
+    buzzer.block(Blockly);
+    buzzer.code(Blockly);
+    keyPad.block(Blockly);
+    keyPad.code(Blockly);
+    matrixLeds.block(Blockly);
+    matrixLeds.code(Blockly);
+    servo.block(Blockly);
+    servo.code(Blockly);
+    sensorMotion.block(Blockly);
+    sensorMotion.code(Blockly);
+    lcd.block(Blockly);
+    lcd.code(Blockly);
+    motor.block(Blockly);
+    motor.code(Blockly);
+
+    /**
+     * TODO Migrate this setup to class Component
+     */
     programComponent.block(Blockly);
     programComponent.code(Blockly);
-    servoMotorComponent.block(Blockly);
-    servoMotorComponent.code(Blockly);
     bumperComponent.block(Blockly);
     bumperComponent.code(Blockly);
     switchComponent.block(Blockly);
     switchComponent.code(Blockly);
     proximityComponent.block(Blockly);
     proximityComponent.code(Blockly);
-    keypadComponent.block(Blockly);
-    keypadComponent.code(Blockly);
-    motionComponent.block(Blockly);
-    motionComponent.code(Blockly);
-    lcdComponent.block(Blockly);
-    lcdComponent.code(Blockly);
-    motorComponent.block(Blockly);
-    motorComponent.code(Blockly);
     microfonoComponent.block(Blockly);
     microfonoComponent.code(Blockly);
   },

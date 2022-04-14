@@ -11,21 +11,18 @@ try {
   });
   board.on('ready', () => {
     try {
-      let LED;
-      LED = new five.Led({
-        pin: 13,
-        custom: {
-          type: 'LED',
-          blink: 0,
-        },
+      var led_1;
+      led_1 = new five.Led({
+        pin: 10,
+        custom: { type: 'LED', blink: 0 },
       });
-      LED.blink(100);
-      LED.custom.blink = 100;
+      led_1.blink(2000);
+      led_1.custom.blink = 2000;
       process.send(
         JSON.stringify({
           type: 'Exito',
           description: 'El programa se ejecutó correctamente',
-          code: jc.decycle(),
+          code: jc.decycle(led_1),
         }),
       );
     } catch (error) {
