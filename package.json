@@ -86,6 +86,10 @@
         "!resources/README.md"
       ]
     },
+    "mac": {
+      "category": "Blokino",
+      "icon": "resources/icons/mac/icon.icns"
+    },
     "dmg": {
       "contents": [
         {

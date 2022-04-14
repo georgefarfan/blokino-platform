@@ -1,6 +1,5 @@
 resources/libs/blockly
 resources/libs/bootstrap
-resources/libs/font-awesome
-resources/libs/hoverCss
+resources/libs/font-awesome 
 node_modules
 dist

@@ -25,15 +25,13 @@ const { clipboard } = require('electron'),
   utils = require('../../utils/functions'),
   CodeMirror = require('codemirror'),
   messages = require('../../utils/messages/msg'),
-  logs_msg = require('../../utils/logs/console'),
-  observables = require('../../utils/observables');
+  logs_msg = require('../../utils/logs/console');
 
 let workspace = Blockly.inject(
   'blokino-workspace',
   Config.blockly(Blockly, typeToolBar),
 );
 
-observables.createObservable();
 Config.loadComponents(Blockly);
 workspace.addChangeListener(changeCurrentCode);
 workspace.addChangeListener(Blockly.Events.disableOrphans);

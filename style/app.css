@@ -1,5 +1,4 @@
 @import url('../resources/libs/font-awesome/css/all.min.css');
-@import url('../resources/libs/hoverCss/css/hover-min.css');
 @import url('../node_modules/codemirror/lib/codemirror.css');
 @import url('../node_modules/codemirror/theme/material.css');
 @import url('../node_modules/codemirror/theme/monokai.css');
