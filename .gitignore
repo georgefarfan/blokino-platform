@@ -5,3 +5,4 @@ node_modules
 dist
 build
 yarn-error.log 
+./resources/libs/johnnyFive/code/current.js

@@ -5,7 +5,8 @@
  * @description Este módulo contiene datos de configuración.
  */
 
-const programComponent = require('./blocks/app-blocks'),
+const // Components
+  programComponent = require('./blocks/app-blocks'),
   ledComponent = require('./blocks/led-blocks'),
   ledRGBComponent = require('./blocks/led-rgb-blocks'),
   buttonComponent = require('./blocks/button-blocks'),
@@ -23,75 +24,55 @@ const programComponent = require('./blocks/app-blocks'),
   microfonoComponent = require('./blocks/microphone-blocks'),
   lcdComponent = require('./blocks/lcd-blocks'),
   motorComponent = require('./blocks/motor-blocks'),
-  LedMenu = require('../utils/menu/led-menu'),
-  LedRGBMenu = require('../utils/menu/led-rgb-menu'),
-  ButtonMenu = require('../utils/menu/button-menu'),
-  LCDMenu = require('../utils/menu/lcd-menu'),
-  JoystickMenu = require('../utils/menu/joystick-menu'),
-  BuzzerMenu = require('../utils/menu/buzzer-menu'),
-  VariableTypeDataMenu = require('../utils/menu/variable-type-menu'),
-  ServomotorMenu = require('../utils/menu/servomotor-menu'),
-  SensorProx = require('../utils/menu/proximity-menu'),
-  PotentiometerMenu = require('../utils/menu/potentiometer-menu'),
-  MatrixLEDsMenu = require('../utils/menu/matrix-menu'),
-  SensorMotionMenu = require('../utils/menu/motion-menu'),
-  ExpertMenu = require('../utils/menu/expert-menu'),
-  KeyPadMenu = require('../utils/menu/keypad-menu'),
-  MotorMenu = require('../utils/menu/motor-menu'),
+  // Base
   ProgramCodeBase = require('../utils/program/blokino-program'),
+  // Libs
   { spawn } = require('child_process'),
   platform = require('../../resources/libs/config/platform'),
   { BrowserWindow } = require('electron'),
   shell = require('electron').shell,
-  path = require('path');
+  path = require('path'),
+  BLOCKLY_PLATFORM = require('./components/blocklyPlatform'),
+  // Components
+  LED_COMPONENT = require('./components/led.component'),
+  LED_RGB_COMPONENT = require('./components/led-rgb.component'),
+  BUTTON_COMPONENT = require('./components/button.component'),
+  LCD_COMPONENT = require('./components/lcd.component'),
+  JOYSTICK_COMPONENT = require('./components/joystick.component'),
+  BUZZER_COMPONENT = require('./components/joystick.component'),
+  VARIABLE_TYPE_COMPONENT = require('./components/variable-type.component'),
+  SERVO_COMPONENT = require('./components/servo.component'),
+  SENSOR_PROX_COMPONENT = require('./components/sensor-prox.component'),
+  POTENTIOMETER_COMPONENT = require('./components/potentiometer.component'),
+  MATRIX_LED_COMPONENT = require('./components/matrix.component'),
+  SENSOR_MOTION_COMPONENT = require('./components/sensor-motion.component'),
+  KEY_PAD_COMPONENT = require('./components/keypad.component'),
+  MOTOR_COMPONENT = require('./components/motor.component'),
+  EXPERT_COMPONENT = require('./components/expert.component');
 
 let aboutPage,
   instanceHelpPage = 0;
 
-let COLOURS = [
-    '#FFFFFF',
-    '#FF0000',
-    '#008000',
-    '#0000FF',
-    '#FFFF00',
-    '#00FFFF',
-    '#FF00FF',
-    '#33A8FF',
-    '#C907DC',
-    '#6D1414',
-    '#082975',
-    '#F4C121',
-  ],
-  ZOOM = {
-    controls: true,
-    wheel: true,
-    maxScale: 3,
-    minScale: 0.3,
-    scaleSpeed: 1.2,
-    startScale: 1.3,
-  },
-  GRID = {
-    spacing: 20,
-    length: 5,
-    colour: '#9E9E9E',
-    snap: true,
-  };
-
-let PAGES = {
-  blokino: 'http://blokino-platform.com/blokino',
-  documentation: 'http://blokino-platform.com/get_started',
-  frietzing: 'http://fritzing.org/download/',
-  nodebot: 'https://nodebots.io/',
-};
+const bloPlatform = new BLOCKLY_PLATFORM(),
+  Led = new LED_COMPONENT(),
+  LedRGB = new LED_RGB_COMPONENT(),
+  button = new BUTTON_COMPONENT(),
+  lcd = new LCD_COMPONENT(),
+  joystick = new JOYSTICK_COMPONENT(),
+  buzzer = new BUZZER_COMPONENT(),
+  variableType = new VARIABLE_TYPE_COMPONENT(),
+  servo = new SERVO_COMPONENT(),
+  sensorProx = new SENSOR_PROX_COMPONENT(),
+  potentiometer = new POTENTIOMETER_COMPONENT(),
+  matrixLeds = new MATRIX_LED_COMPONENT(),
+  sensorMotion = new SENSOR_MOTION_COMPONENT(),
+  keyPad = new KEY_PAD_COMPONENT(),
+  motor = new MOTOR_COMPONENT(),
+  expert = new EXPERT_COMPONENT();
 
 let settings = {
   urls: () => {
-    return {
-      blokino: 'http://blokino-platform.com/blokino',
-      documentation: 'http://blokino-platform.com/get_started',
-      frietzing: 'http://fritzing.org/download/',
-      nodebot: 'https://nodebots.io/',
-    };
+    return bloPlatform.PAGES;
   },
   createPageHelp: () => {
     return [
@@ -138,7 +119,6 @@ let settings = {
           },
         ],
       },
-
       {
         label: 'Vista',
         submenu: [
@@ -196,11 +176,11 @@ let settings = {
             label: 'Página web',
             click() {
               if (platform.arch().includes('win')) {
-                shell.openExternal(PAGES.blokino);
+                shell.openExternal(bloPlatform.PAGES.blokino);
               } else {
                 spawn('chromium-browser', [
                   '--no-sandbox',
-                  PAGES.blokino,
+                  bloPlatform.PAGES.blokino,
                 ]);
               }
             },
@@ -209,11 +189,11 @@ let settings = {
             label: 'Node-Bots',
             click() {
               if (platform.arch().includes('win')) {
-                shell.openExternal(PAGES.nodebot);
+                shell.openExternal(bloPlatform.PAGES.nodebot);
               } else {
                 spawn('chromium-browser', [
                   '--no-sandbox',
-                  PAGES.nodebot,
+                  bloPlatform.PAGES.nodebot,
                 ]);
               }
             },
@@ -222,11 +202,11 @@ let settings = {
             label: 'Frietzing',
             click() {
               if (platform.arch().includes('win')) {
-                shell.openExternal(PAGES.frietzing);
+                shell.openExternal(bloPlatform.PAGES.frietzing);
               } else {
                 spawn('chromium-browser', [
                   '--no-sandbox',
-                  PAGES.frietzing,
+                  bloPlatform.PAGES.frietzing,
                 ]);
               }
             },
@@ -253,26 +233,14 @@ let settings = {
     }
   },
   beautify: (code) => {
-    return {
-      indent_size: 4,
-      space_in_empty_paren: true,
-      end_with_newline: true,
-      preserve_newlines: false,
-    };
+    return bloPlatform.beautify();
   },
   codeMirror: (code) => {
-    return {
-      value: code,
-      mode: 'javascript',
-      lineNumbers: true,
-      readOnly: true,
-      tabSize: 4,
-      theme: 'dracula',
-    };
+    return bloPlatform.mirror();
   },
   blockly: (Blockly, typeToolBar) => {
     // Defino configuraciones globales para Blockly
-    Blockly.FieldColour.COLOURS = COLOURS;
+    Blockly.FieldColour.COLOURS = bloPlatform.COLOURS;
     Blockly.FieldColour.COLUMNS = 3;
     Blockly.HSV_SATURATION = 0.5;
     Blockly.HSV_VALUE = 0.7;
@@ -283,125 +251,125 @@ let settings = {
     switch (typeToolBar) {
       case 'Expert':
         return {
-          toolbox: ExpertMenu.menu().main.code,
-          zoom: ZOOM,
-          grid: GRID,
+          toolbox: expert.menu().main.code,
+          zoom: bloPlatform.ZOOM,
+          grid: bloPlatform.GRID,
           trashcan: true,
         };
         break;
       case 'Led':
         return {
-          toolbox: LedMenu.menu().test_1.code,
-          zoom: ZOOM,
-          grid: GRID,
+          toolbox: Led.menu().test_1.code,
+          zoom: bloPlatform.ZOOM,
+          grid: bloPlatform.GRID,
           trashcan: true,
           comments: false,
         };
         break;
       case 'LedRGB':
         return {
-          toolbox: LedRGBMenu.menu().test_1.code,
-          zoom: ZOOM,
-          grid: GRID,
+          toolbox: LedRGB.menu().test_1.code,
+          zoom: bloPlatform.ZOOM,
+          grid: bloPlatform.GRID,
           trashcan: true,
           comments: false,
         };
         break;
       case 'Buzzer':
         return {
-          toolbox: BuzzerMenu.menu().test_1.code,
-          zoom: ZOOM,
-          grid: GRID,
+          toolbox: buzzer.menu().test_1.code,
+          zoom: bloPlatform.ZOOM,
+          grid: bloPlatform.GRID,
           trashcan: true,
           comments: false,
         };
         break;
       case 'Button':
         return {
-          toolbox: ButtonMenu.menu().test_1.code,
-          zoom: ZOOM,
-          grid: GRID,
+          toolbox: button.menu().test_1.code,
+          zoom: bloPlatform.ZOOM,
+          grid: bloPlatform.GRID,
           trashcan: true,
           comments: false,
         };
         break;
       case 'KeyPad':
         return {
-          toolbox: KeyPadMenu.menu().test_1.code,
-          zoom: ZOOM,
-          grid: GRID,
+          toolbox: keyPad.menu().test_1.code,
+          zoom: bloPlatform.ZOOM,
+          grid: bloPlatform.GRID,
           trashcan: true,
           comments: false,
         };
         break;
       case 'Motors':
         return {
-          toolbox: MotorMenu.menu().test_1.code,
-          zoom: ZOOM,
-          grid: GRID,
+          toolbox: motor.menu().test_1.code,
+          zoom: bloPlatform.ZOOM,
+          grid: bloPlatform.GRID,
           trashcan: true,
           comments: false,
         };
         break;
       case 'ScreenMatrix':
         return {
-          toolbox: MatrixLEDsMenu.menu().test_1.code,
-          zoom: ZOOM,
-          grid: GRID,
+          toolbox: matrixLeds.menu().test_1.code,
+          zoom: bloPlatform.ZOOM,
+          grid: bloPlatform.GRID,
           trashcan: true,
           comments: false,
         };
         break;
       case 'SensorMov':
         return {
-          toolbox: SensorMotionMenu.menu().test_1.code,
-          zoom: ZOOM,
-          grid: GRID,
+          toolbox: sensorMotion.menu().test_1.code,
+          zoom: bloPlatform.ZOOM,
+          grid: bloPlatform.GRID,
           trashcan: true,
           comments: false,
         };
         break;
       case 'SensorProx':
         return {
-          toolbox: SensorProx.menu().test_1.code,
-          zoom: ZOOM,
-          grid: GRID,
+          toolbox: sensorProx.menu().test_1.code,
+          zoom: bloPlatform.ZOOM,
+          grid: bloPlatform.GRID,
           trashcan: true,
           comments: false,
         };
         break;
       case 'Servomotor':
         return {
-          toolbox: ServomotorMenu.menu().test_1.code,
-          zoom: ZOOM,
-          grid: GRID,
+          toolbox: servo.menu().test_1.code,
+          zoom: bloPlatform.ZOOM,
+          grid: bloPlatform.GRID,
           trashcan: true,
           comments: false,
         };
         break;
       case 'LCD':
         return {
-          toolbox: LCDMenu.menu().test_1.code,
-          zoom: ZOOM,
-          grid: GRID,
+          toolbox: lcd.menu().test_1.code,
+          zoom: bloPlatform.ZOOM,
+          grid: bloPlatform.GRID,
           trashcan: true,
           comments: false,
         };
         break;
       case 'Joystick':
         return {
-          toolbox: JoystickMenu.menu().test_1.code,
-          zoom: ZOOM,
-          grid: GRID,
+          toolbox: joystick.menu().test_1.code,
+          zoom: bloPlatform.ZOOM,
+          grid: bloPlatform.GRID,
           trashcan: true,
           comments: false,
         };
         break;
       case 'Potentiometer':
         return {
-          toolbox: PotentiometerMenu.menu().test_1.code,
-          zoom: ZOOM,
-          grid: GRID,
+          toolbox: potentiometer.menu().test_1.code,
+          zoom: bloPlatform.ZOOM,
+          grid: bloPlatform.GRID,
           trashcan: true,
           comments: false,
         };
@@ -409,7 +377,7 @@ let settings = {
     }
   },
   challenges: (Blockly, test, challengeType) => {
-    Blockly.FieldColour.COLOURS = COLOURS;
+    Blockly.FieldColour.COLOURS = bloPlatform.COLOURS;
     Blockly.FieldColour.COLUMNS = 3;
     Blockly.HSV_SATURATION = 0.8;
     Blockly.HSV_VALUE = 0.8;
@@ -418,36 +386,36 @@ let settings = {
         switch (test) {
           case 'test_1':
             return {
-              toolbox: LedMenu.menu().test_1.code,
-              zoom: ZOOM,
-              grid: GRID,
+              toolbox: Led.menu().test_1.code,
+              zoom: bloPlatform.ZOOM,
+              grid: bloPlatform.GRID,
               trashcan: true,
               comments: false,
             };
             break;
           case 'test_2':
             return {
-              toolbox: LedMenu.menu().test_2.code,
-              zoom: ZOOM,
-              grid: GRID,
+              toolbox: Led.menu().test_2.code,
+              zoom: bloPlatform.ZOOM,
+              grid: bloPlatform.GRID,
               trashcan: true,
               comments: false,
             };
             break;
           case 'test_3':
             return {
-              toolbox: LedMenu.menu().test_3.code,
-              zoom: ZOOM,
-              grid: GRID,
+              toolbox: Led.menu().test_3.code,
+              zoom: bloPlatform.ZOOM,
+              grid: bloPlatform.GRID,
               trashcan: true,
               comments: false,
             };
             break;
           case 'test_4':
             return {
-              toolbox: LedMenu.menu().test_4.code,
-              zoom: ZOOM,
-              grid: GRID,
+              toolbox: Led.menu().test_4.code,
+              zoom: bloPlatform.ZOOM,
+              grid: bloPlatform.GRID,
               trashcan: true,
               comments: false,
             };
@@ -458,17 +426,17 @@ let settings = {
         switch (test) {
           case 'test_1':
             return {
-              toolbox: LedRGBMenu.menu().test_1.code,
-              zoom: ZOOM,
-              grid: GRID,
+              toolbox: LedRGB.menu().test_1.code,
+              zoom: bloPlatform.ZOOM,
+              grid: bloPlatform.GRID,
               trashcan: true,
             };
             break;
           case 'test_2':
             return {
-              toolbox: LedRGBMenu.menu().test_2.code,
-              zoom: ZOOM,
-              grid: GRID,
+              toolbox: LedRGB.menu().test_2.code,
+              zoom: bloPlatform.ZOOM,
+              grid: bloPlatform.GRID,
               trashcan: true,
             };
             break;
@@ -478,25 +446,25 @@ let settings = {
         switch (test) {
           case 'test_1':
             return {
-              toolbox: ButtonMenu.menu().test_1.code,
-              zoom: ZOOM,
-              grid: GRID,
+              toolbox: button.menu().test_1.code,
+              zoom: bloPlatform.ZOOM,
+              grid: bloPlatform.GRID,
               trashcan: true,
             };
             break;
           case 'test_2':
             return {
-              toolbox: ButtonMenu.menu().test_2.code,
-              zoom: ZOOM,
-              grid: GRID,
+              toolbox: button.menu().test_2.code,
+              zoom: bloPlatform.ZOOM,
+              grid: bloPlatform.GRID,
               trashcan: true,
             };
             break;
           case 'test_3':
             return {
-              toolbox: ButtonMenu.menu().test_3.code,
-              zoom: ZOOM,
-              grid: GRID,
+              toolbox: button.menu().test_3.code,
+              zoom: bloPlatform.ZOOM,
+              grid: bloPlatform.GRID,
               trashcan: true,
             };
             break;
@@ -506,17 +474,17 @@ let settings = {
         switch (test) {
           case 'test_1':
             return {
-              toolbox: BuzzerMenu.menu().test_1.code,
-              zoom: ZOOM,
-              grid: GRID,
+              toolbox: buzzer.menu().test_1.code,
+              zoom: bloPlatform.ZOOM,
+              grid: bloPlatform.GRID,
               trashcan: true,
             };
             break;
           case 'test_2':
             return {
-              toolbox: BuzzerMenu.menu().test_2.code,
-              zoom: ZOOM,
-              grid: GRID,
+              toolbox: buzzer.menu().test_2.code,
+              zoom: bloPlatform.ZOOM,
+              grid: bloPlatform.GRID,
               trashcan: true,
             };
             break;
@@ -526,25 +494,25 @@ let settings = {
         switch (test) {
           case 'test_1':
             return {
-              toolbox: LCDMenu.menu().test_1.code,
-              zoom: ZOOM,
-              grid: GRID,
+              toolbox: lcd.menu().test_1.code,
+              zoom: bloPlatform.ZOOM,
+              grid: bloPlatform.GRID,
               trashcan: true,
             };
             break;
           case 'test_2':
             return {
-              toolbox: LCDMenu.menu().test_2.code,
-              zoom: ZOOM,
-              grid: GRID,
+              toolbox: lcd.menu().test_2.code,
+              zoom: bloPlatform.ZOOM,
+              grid: bloPlatform.GRID,
               trashcan: true,
             };
             break;
           case 'test_3':
             return {
-              toolbox: LCDMenu.menu().test_3.code,
-              zoom: ZOOM,
-              grid: GRID,
+              toolbox: lcd.menu().test_3.code,
+              zoom: bloPlatform.ZOOM,
+              grid: bloPlatform.GRID,
               trashcan: true,
             };
             break;
@@ -554,9 +522,9 @@ let settings = {
         switch (test) {
           case 'test_1':
             return {
-              toolbox: JoystickMenu.menu().test_1.code,
-              zoom: ZOOM,
-              grid: GRID,
+              toolbox: joystick.menu().test_1.code,
+              zoom: bloPlatform.ZOOM,
+              grid: bloPlatform.GRID,
               trashcan: true,
             };
             break;
@@ -566,33 +534,33 @@ let settings = {
         switch (test) {
           case 'test_1':
             return {
-              toolbox: LedMenu.menu().test_1.code,
-              zoom: ZOOM,
-              grid: GRID,
+              toolbox: Led.menu().test_1.code,
+              zoom: bloPlatform.ZOOM,
+              grid: bloPlatform.GRID,
               trashcan: true,
             };
             break;
           case 'test_2':
             return {
-              toolbox: LedMenu.menu().test_2.code,
-              zoom: ZOOM,
-              grid: GRID,
+              toolbox: Led.menu().test_2.code,
+              zoom: bloPlatform.ZOOM,
+              grid: bloPlatform.GRID,
               trashcan: true,
             };
             break;
           case 'test_3':
             return {
-              toolbox: LedMenu.menu().test_3.code,
-              zoom: ZOOM,
-              grid: GRID,
+              toolbox: Led.menu().test_3.code,
+              zoom: bloPlatform.ZOOM,
+              grid: bloPlatform.GRID,
               trashcan: true,
             };
             break;
           case 'test_4':
             return {
-              toolbox: LedMenu.menu().test_4.code,
-              zoom: ZOOM,
-              grid: GRID,
+              toolbox: Led.menu().test_4.code,
+              zoom: bloPlatform.ZOOM,
+              grid: bloPlatform.GRID,
               trashcan: true,
             };
             break;
@@ -602,25 +570,25 @@ let settings = {
         switch (test) {
           case 'test_1':
             return {
-              toolbox: MatrixLEDsMenu.menu().test_1.code,
-              zoom: ZOOM,
-              grid: GRID,
+              toolbox: matrixLeds.menu().test_1.code,
+              zoom: bloPlatform.ZOOM,
+              grid: bloPlatform.GRID,
               trashcan: true,
             };
             break;
           case 'test_2':
             return {
-              toolbox: MatrixLEDsMenu.menu().test_2.code,
-              zoom: ZOOM,
-              grid: GRID,
+              toolbox: matrixLeds.menu().test_2.code,
+              zoom: bloPlatform.ZOOM,
+              grid: bloPlatform.GRID,
               trashcan: true,
             };
             break;
           case 'test_3':
             return {
-              toolbox: MatrixLEDsMenu.menu().test_3.code,
-              zoom: ZOOM,
-              grid: GRID,
+              toolbox: matrixLeds.menu().test_3.code,
+              zoom: bloPlatform.ZOOM,
+              grid: bloPlatform.GRID,
               trashcan: true,
             };
             break;
@@ -630,9 +598,9 @@ let settings = {
         switch (test) {
           case 'test_1':
             return {
-              toolbox: SensorMotionMenu.menu().test_1.code,
-              zoom: ZOOM,
-              grid: GRID,
+              toolbox: sensorMotion.menu().test_1.code,
+              zoom: bloPlatform.ZOOM,
+              grid: bloPlatform.GRID,
               trashcan: true,
             };
             break;
@@ -642,33 +610,33 @@ let settings = {
         switch (test) {
           case 'test_1':
             return {
-              toolbox: LedMenu.menu().test_1.code,
-              zoom: ZOOM,
-              grid: GRID,
+              toolbox: Led.menu().test_1.code,
+              zoom: bloPlatform.ZOOM,
+              grid: bloPlatform.GRID,
               trashcan: true,
             };
             break;
           case 'test_2':
             return {
-              toolbox: LedMenu.menu().test_2.code,
-              zoom: ZOOM,
-              grid: GRID,
+              toolbox: Led.menu().test_2.code,
+              zoom: bloPlatform.ZOOM,
+              grid: bloPlatform.GRID,
               trashcan: true,
             };
             break;
           case 'test_3':
             return {
-              toolbox: LedMenu.menu().test_3.code,
-              zoom: ZOOM,
-              grid: GRID,
+              toolbox: Led.menu().test_3.code,
+              zoom: bloPlatform.ZOOM,
+              grid: bloPlatform.GRID,
               trashcan: true,
             };
             break;
           case 'test_4':
             return {
-              toolbox: LedMenu.menu().test_4.code,
-              zoom: ZOOM,
-              grid: GRID,
+              toolbox: Led.menu().test_4.code,
+              zoom: bloPlatform.ZOOM,
+              grid: bloPlatform.GRID,
               trashcan: true,
             };
             break;
@@ -678,17 +646,17 @@ let settings = {
         switch (test) {
           case 'test_1':
             return {
-              toolbox: PotentiometerMenu.menu().test_1.code,
-              zoom: ZOOM,
-              grid: GRID,
+              toolbox: potentiometer.menu().test_1.code,
+              zoom: bloPlatform.ZOOM,
+              grid: bloPlatform.GRID,
               trashcan: true,
             };
             break;
           case 'test_2':
             return {
-              toolbox: PotentiometerMenu.menu().test_2.code,
-              zoom: ZOOM,
-              grid: GRID,
+              toolbox: potentiometer.menu().test_2.code,
+              zoom: bloPlatform.ZOOM,
+              grid: bloPlatform.GRID,
               trashcan: true,
             };
             break;
@@ -698,33 +666,33 @@ let settings = {
         switch (test) {
           case 'test_1':
             return {
-              toolbox: LedMenu.menu().test_1.code,
-              zoom: ZOOM,
-              grid: GRID,
+              toolbox: Led.menu().test_1.code,
+              zoom: bloPlatform.ZOOM,
+              grid: bloPlatform.GRID,
               trashcan: true,
             };
             break;
           case 'test_2':
             return {
-              toolbox: LedMenu.menu().test_2.code,
-              zoom: ZOOM,
-              grid: GRID,
+              toolbox: Led.menu().test_2.code,
+              zoom: bloPlatform.ZOOM,
+              grid: bloPlatform.GRID,
               trashcan: true,
             };
             break;
           case 'test_3':
             return {
-              toolbox: LedMenu.menu().test_3.code,
-              zoom: ZOOM,
-              grid: GRID,
+              toolbox: Led.menu().test_3.code,
+              zoom: bloPlatform.ZOOM,
+              grid: bloPlatform.GRID,
               trashcan: true,
             };
             break;
           case 'test_4':
             return {
-              toolbox: LedMenu.menu().test_4.code,
-              zoom: ZOOM,
-              grid: GRID,
+              toolbox: Led.menu().test_4.code,
+              zoom: bloPlatform.ZOOM,
+              grid: bloPlatform.GRID,
               trashcan: true,
             };
             break;
@@ -734,25 +702,25 @@ let settings = {
         switch (test) {
           case 'test_1':
             return {
-              toolbox: ServomotorMenu.menu().test_1.code,
-              zoom: ZOOM,
-              grid: GRID,
+              toolbox: servo.menu().test_1.code,
+              zoom: bloPlatform.ZOOM,
+              grid: bloPlatform.GRID,
               trashcan: true,
             };
             break;
           case 'test_2':
             return {
-              toolbox: ServomotorMenu.menu().test_2.code,
-              zoom: ZOOM,
-              grid: GRID,
+              toolbox: servo.menu().test_2.code,
+              zoom: bloPlatform.ZOOM,
+              grid: bloPlatform.GRID,
               trashcan: true,
             };
             break;
           case 'test_3':
             return {
-              toolbox: ServomotorMenu.menu().test_3.code,
-              zoom: ZOOM,
-              grid: GRID,
+              toolbox: servo.menu().test_3.code,
+              zoom: bloPlatform.ZOOM,
+              grid: bloPlatform.GRID,
               trashcan: true,
             };
             break;
@@ -763,33 +731,33 @@ let settings = {
         switch (test) {
           case 'test_1':
             return {
-              toolbox: LedMenu.menu().test_1.code,
-              zoom: ZOOM,
-              grid: GRID,
+              toolbox: Led.menu().test_1.code,
+              zoom: bloPlatform.ZOOM,
+              grid: bloPlatform.GRID,
               trashcan: true,
             };
             break;
           case 'test_2':
             return {
-              toolbox: LedMenu.menu().test_2.code,
-              zoom: ZOOM,
-              grid: GRID,
+              toolbox: Led.menu().test_2.code,
+              zoom: bloPlatform.ZOOM,
+              grid: bloPlatform.GRID,
               trashcan: true,
             };
             break;
           case 'test_3':
             return {
-              toolbox: LedMenu.menu().test_3.code,
-              zoom: ZOOM,
-              grid: GRID,
+              toolbox: Led.menu().test_3.code,
+              zoom: bloPlatform.ZOOM,
+              grid: bloPlatform.GRID,
               trashcan: true,
             };
             break;
           case 'test_4':
             return {
-              toolbox: LedMenu.menu().test_4.code,
-              zoom: ZOOM,
-              grid: GRID,
+              toolbox: Led.menu().test_4.code,
+              zoom: bloPlatform.ZOOM,
+              grid: bloPlatform.GRID,
               trashcan: true,
             };
             break;
@@ -800,33 +768,33 @@ let settings = {
         switch (test) {
           case 'test_1':
             return {
-              toolbox: VariableTypeDataMenu.menu().test_1.code,
-              zoom: ZOOM,
-              grid: GRID,
+              toolbox: variableType.menu().test_1.code,
+              zoom: bloPlatform.ZOOM,
+              grid: bloPlatform.GRID,
               trashcan: true,
             };
             break;
           case 'test_2':
             return {
-              toolbox: VariableTypeDataMenu.menu().test_2.code,
-              zoom: ZOOM,
-              grid: GRID,
+              toolbox: variableType.menu().test_2.code,
+              zoom: bloPlatform.ZOOM,
+              grid: bloPlatform.GRID,
               trashcan: true,
             };
             break;
           case 'test_3':
             return {
-              toolbox: VariableTypeDataMenu.menu().test_3.code,
-              zoom: ZOOM,
-              grid: GRID,
+              toolbox: variableType.menu().test_3.code,
+              zoom: bloPlatform.ZOOM,
+              grid: bloPlatform.GRID,
               trashcan: true,
             };
             break;
           case 'test_4':
             return {
-              toolbox: VariableTypeDataMenu.menu().test_4.code,
-              zoom: ZOOM,
-              grid: GRID,
+              toolbox: variableType.menu().test_4.code,
+              zoom: bloPlatform.ZOOM,
+              grid: bloPlatform.GRID,
               trashcan: true,
             };
             break;

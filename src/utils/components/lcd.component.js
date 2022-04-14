@@ -1,12 +1,7 @@
-'use strict';
+const blocklyPlatform = require('./blocklyPlatform');
 
-/**
- * @author Jorge Farfan Coaguila
- * @description Este módulo contiene los menus para el desafío de los LEDs
- */
-
-let menuFunctions = {
-  menu: () => {
+const lcdComponent = class LCDComponent extends blocklyPlatform {
+  menu() {
     return {
       test_1: {
         code: `
@@ -93,7 +88,7 @@ let menuFunctions = {
                     </xml>`,
       },
     };
-  },
+  }
 };
 
-module.exports = menuFunctions;
+module.exports = lcdComponent;

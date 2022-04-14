@@ -13,9 +13,11 @@
     }
   },
   "scripts": {
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder",
+    "electron-rebuild": "electron-rebuild",
     "publish": "git push --tags && npm publish",
     "start": "electron .",
-    "electron-rebuild": "electron-rebuild",
     "lint": "prettier --check .",
     "format": "prettier --write .",
     "prettier-staged": "pretty-quick --staged ",
@@ -33,7 +35,7 @@
   "license": "MIT",
   "devDependencies": {
     "electron": "^4.2.12",
-    "electron-builder": "^20.38.5",
+    "electron-builder": "^23.0.2",
     "electron-rebuild": "^2.3.5"
   },
   "dependencies": {

@@ -1,12 +1,7 @@
-'use strict';
+const blocklyPlatform = require('./blocklyPlatform');
 
-/**
- * @author Jorge Farfan Coaguila
- * @description Este módulo contiene los menus para el desafío del JOYSTICK
- */
-
-let menuFunctions = {
-  menu: () => {
+const joystickComponent = class JoystickComponent extends blocklyPlatform {
+  menu() {
     return {
       test_1: {
         code: `
@@ -57,7 +52,7 @@ let menuFunctions = {
                     `,
       },
     };
-  },
+  }
 };
 
-module.exports = menuFunctions;
+module.exports = joystickComponent;

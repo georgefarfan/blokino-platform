@@ -1,11 +1,7 @@
-'use strict';
+const blocklyPlatform = require('./blocklyPlatform');
 
-/**
- * @author Jorge Farfan Coaguila
- * @description Este módulo contiene los menus para el desafío del SERVOMOTOR
- */
-let menuFunctions = {
-  menu: () => {
+const servoComponent = class SERVOComponent extends blocklyPlatform {
+  menu() {
     return {
       test_1: {
         code: `
@@ -91,7 +87,7 @@ let menuFunctions = {
                     </xml>`,
       },
     };
-  },
+  }
 };
 
-module.exports = menuFunctions;
+module.exports = servoComponent;
