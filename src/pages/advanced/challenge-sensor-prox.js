@@ -11,8 +11,10 @@ let validate_result_code = [[], [], []],
   conditions = {
     test_1: false,
   },
-  currentCallback = null,
-  validator = require('../../utils/validators/proximity-validator');
+  currentCallback = null;
+
+const SENSOR_PROX =
+  new (require('./../../utils/components/sensor-prox.component'))();
 
 $('#modal-new-variable').on('hidden.bs.modal', () => {
   let new_variable = $('#new-variable').val().replace(/\s/g, '');
@@ -79,7 +81,7 @@ document
       if (current_test == 'test_1') {
         let validate_code = utils.esprimaValidation(code);
         if (validate_code !== 'Error') {
-          validate_result_code = validator.proximity(
+          validate_result_code = SENSOR_PROX.validate(
             validate_code.body,
             validate_result_code,
           );

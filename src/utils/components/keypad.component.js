@@ -1,6 +1,36 @@
 const blocklyPlatform = require('./blocklyPlatform');
 
 const keyPadComponent = class KeyPadComponent extends blocklyPlatform {
+  validate(code, programNodes) {
+    programNodes = [];
+    code.forEach((node) => {
+      // Declaracion de la variable
+      if (node.type === 'VariableDeclaration') {
+        this.addVariable(node, programNodes);
+      }
+    });
+    return programNodes;
+  }
+
+  createKeyPad(programNodes, blockName, typeName) {
+    programNodes.push({
+      name: blockName,
+      type: typeName ? typeName : '',
+    });
+  }
+
+  addVariable(node, programNodes) {
+    node.declarations.forEach((variable) => {
+      this.createKeyPad(
+        programNodes,
+        variable.id.name,
+        'BLOCK',
+        null,
+        null,
+      );
+    });
+  }
+
   menu() {
     return {
       test_1: {

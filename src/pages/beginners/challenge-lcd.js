@@ -12,8 +12,9 @@ let validate_result_code = [[], [], []],
     test_1: false,
     test_2: false,
   },
-  currentCallback = null,
-  validator = require('../../utils/validators/lcd-validator');
+  currentCallback = null;
+
+const LCD = new (require('./../../utils/components/lcd.component'))();
 
 $('#modal-new-variable').on('hidden.bs.modal', () => {
   let new_variable = $('#new-variable').val().replace(/\s/g, '');
@@ -77,7 +78,7 @@ document
       if (current_test == 'test_1') {
         let validate_code = utils.esprimaValidation(code);
         if (validate_code !== 'Error') {
-          validate_result_code = validator.lcd(
+          validate_result_code = LCD.validate(
             validate_code.body,
             validate_result_code,
           );
@@ -155,7 +156,7 @@ document
       if (current_test == 'test_2') {
         let validate_code = utils.esprimaValidation(code);
         if (validate_code !== 'Error') {
-          validate_result_code = validator.lcd(
+          validate_result_code = LCD.validate(
             validate_code.body,
             validate_result_code,
           );

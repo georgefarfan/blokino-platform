@@ -11,8 +11,10 @@ let validate_result_code = [[], [], []],
   conditions = {
     test_1: false,
   },
-  currentCallback = null,
-  validator = require('../../utils/validators/potentiometer-validator');
+  currentCallback = null;
+
+const POTENTIOMETER =
+  new (require('./../../utils/components/potentiometer.component'))();
 
 $('#modal-new-variable').on('hidden.bs.modal', () => {
   let new_variable = $('#new-variable').val().replace(/\s/g, '');
@@ -80,7 +82,7 @@ document
         let validate_code = utils.esprimaValidation(code);
 
         if (validate_code !== 'Error') {
-          validate_result_code = validator.potentiometer(
+          validate_result_code = POTENTIOMETER.validate(
             validate_code.body,
             validate_result_code,
           );

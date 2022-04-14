@@ -1,6 +1,36 @@
 const blocklyPlatform = require('./blocklyPlatform');
 
 const ledComponent = class LedComponent extends blocklyPlatform {
+  validate(code, programNodes) {
+    programNodes = [];
+    code.forEach((node) => {
+      // Declaracion de la variable
+      if (node.type === 'VariableDeclaration') {
+        this.addVariable(node, programNodes);
+      }
+    });
+    return programNodes;
+  }
+
+  createLED(programNodes, ledName, typeName) {
+    programNodes.push({
+      name: ledName,
+      type: typeName ? typeName : '',
+    });
+  }
+
+  addVariable(node, programNodes) {
+    node.declarations.forEach((variable) => {
+      this.createLED(
+        programNodes,
+        variable.id.name,
+        'LED',
+        null,
+        null,
+      );
+    });
+  }
+
   menu() {
     return {
       test_1: {

@@ -1,6 +1,36 @@
 const blocklyPlatform = require('./blocklyPlatform');
 
 const buttonComponent = class ButtonComponent extends blocklyPlatform {
+  validate(code, programNodes) {
+    programNodes = [];
+    code.forEach((node) => {
+      // Declaracion de la variable
+      if (node.type === 'VariableDeclaration') {
+        this.addVariable(node, programNodes);
+      }
+    });
+    return programNodes;
+  }
+
+  createButton(programNodes, blockName, typeName) {
+    programNodes.push({
+      name: blockName,
+      type: typeName ? typeName : '',
+    });
+  }
+
+  addVariable(node, programNodes) {
+    node.declarations.forEach((variable) => {
+      this.createButton(
+        programNodes,
+        variable.id.name,
+        'BLOCK',
+        null,
+        null,
+      );
+    });
+  }
+
   menu() {
     return {
       test_1: {

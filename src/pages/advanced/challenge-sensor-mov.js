@@ -11,8 +11,10 @@ let validate_result_code = [[], [], []],
   conditions = {
     test_1: false,
   },
-  currentCallback = null,
-  validator = require('../../utils/validators/motion-validator');
+  currentCallback = null;
+
+const MOTION =
+  new (require('./../../utils/components/motor.component'))();
 
 $('#modal-new-variable').on('hidden.bs.modal', () => {
   let new_variable = $('#new-variable').val().replace(/\s/g, '');
@@ -79,7 +81,7 @@ document
       if (current_test == 'test_1') {
         let validate_code = utils.esprimaValidation(code);
         if (validate_code !== 'Error') {
-          validate_result_code = validator.motion(
+          validate_result_code = MOTION.validate(
             validate_code.body,
             validate_result_code,
           );

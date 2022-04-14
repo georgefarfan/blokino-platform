@@ -13,8 +13,10 @@ let validate_result_code = [[], [], []],
     test_2: false,
     test_3: false,
   },
-  currentCallback = null,
-  validator = require('../../utils/validators/servomotor-validator');
+  currentCallback = null;
+
+const SERVO =
+  new (require('./../../utils/components/servo.component'))();
 
 $('#modal-new-variable').on('hidden.bs.modal', () => {
   let new_variable = $('#new-variable').val().replace(/\s/g, '');
@@ -78,7 +80,7 @@ document
       if (current_test == 'test_1') {
         let validate_code = utils.esprimaValidation(code);
         if (validate_code !== 'Error') {
-          validate_result_code = validator.servomotor(
+          validate_result_code = SERVO.validate(
             validate_code.body,
             validate_result_code,
           );
@@ -163,7 +165,7 @@ document
       if (current_test == 'test_2') {
         let validate_code = utils.esprimaValidation(code);
         if (validate_code !== 'Error') {
-          validate_result_code = validator.servomotor(
+          validate_result_code = SERVO.validate(
             validate_code.body,
             validate_result_code,
           );
@@ -244,7 +246,7 @@ document
       if (current_test == 'test_3') {
         let validate_code = utils.esprimaValidation(code);
         if (validate_code !== 'Error') {
-          validate_result_code = validator.servomotor(
+          validate_result_code = SERVO.validate(
             validate_code.body,
             validate_result_code,
           );

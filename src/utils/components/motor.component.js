@@ -1,6 +1,42 @@
 const blocklyPlatform = require('./blocklyPlatform');
 
 const MotorComponent = class MotorComponent extends blocklyPlatform {
+  createMotion(
+    programNodes,
+    matrixLEDSName,
+    typeName,
+    codeMatrixLEDS,
+  ) {
+    programNodes.push({
+      name: matrixLEDSName,
+      type: typeName ? typeName : '',
+      code: codeMatrixLEDS,
+    });
+  }
+
+  addVariable(node, programNodes) {
+    node.declarations.forEach((variable) => {
+      this.createMotion(
+        programNodes,
+        variable.id.name,
+        'BLOCK',
+        null,
+        null,
+      );
+    });
+  }
+
+  validate(code, programNodes) {
+    programNodes = [];
+    code.forEach((node) => {
+      // Declaracion de la variable
+      if (node.type === 'VariableDeclaration') {
+        this.addVariable(node, programNodes);
+      }
+    });
+    return programNodes;
+  }
+
   menu() {
     return {
       test_1: {

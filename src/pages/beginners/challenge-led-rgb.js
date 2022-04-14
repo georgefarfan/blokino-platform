@@ -13,7 +13,9 @@ let validate_result_code = [[], [], []],
     test_2: false,
   },
   currentCallback = null;
-let validator = require('../../utils/validators/ledrgb-validator');
+
+const LED_RGB =
+  new (require('./../../utils/components/led-rgb.component'))();
 
 $('#modal-new-variable').on('hidden.bs.modal', () => {
   let new_variable = $('#new-variable').val().replace(/\s/g, '');
@@ -76,7 +78,7 @@ document
     if (device !== undefined) {
       let validate_code = utils.esprimaValidation(code);
       if (validate_code !== 'Error') {
-        validate_result_code = validator.ledRGB(
+        validate_result_code = LED_RGB.validate(
           validate_code.body,
           validate_result_code,
         );

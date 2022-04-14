@@ -1,6 +1,36 @@
 const blocklyPlatform = require('./blocklyPlatform');
 
 const potentiometerComponent = class PotentiometerComponent extends blocklyPlatform {
+  validate(code, programNodes) {
+    programNodes = [];
+    code.forEach((node) => {
+      // Declaracion de la variable
+      if (node.type === 'VariableDeclaration') {
+        this.addVariable(node, programNodes);
+      }
+    });
+    return programNodes;
+  }
+
+  createPotentiometer(programNodes, blockName, typeName) {
+    programNodes.push({
+      name: blockName,
+      type: typeName ? typeName : '',
+    });
+  }
+
+  addVariable(node, programNodes) {
+    node.declarations.forEach((variable) => {
+      this.createPotentiometer(
+        programNodes,
+        variable.id.name,
+        'BLOCK',
+        null,
+        null,
+      );
+    });
+  }
+
   menu() {
     return {
       test_1: {

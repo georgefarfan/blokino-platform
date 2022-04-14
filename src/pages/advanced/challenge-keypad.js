@@ -11,8 +11,10 @@ let validate_result_code = [[], [], []],
   conditions = {
     test_1: false,
   },
-  currentCallback = null,
-  validator = require('../../utils/validators/keypad-validator');
+  currentCallback = null;
+
+const KEYPAD =
+  new (require('./../../utils/components/keypad.component'))();
 
 $('#modal-new-variable').on('hidden.bs.modal', () => {
   let new_variable = $('#new-variable').val().replace(/\s/g, '');
@@ -81,7 +83,7 @@ document
       if (current_test == 'test_1') {
         let validate_code = utils.esprimaValidation(code);
         if (validate_code !== 'Error') {
-          validate_result_code = validator.keypad(
+          validate_result_code = KEYPAD.validate(
             validate_code.body,
             validate_result_code,
           );

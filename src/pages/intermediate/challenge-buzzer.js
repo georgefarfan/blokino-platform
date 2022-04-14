@@ -12,8 +12,10 @@ let validate_result_code = [[], [], []],
     test_1: false,
     test_2: false,
   },
-  currentCallback = null,
-  validator = require('../../utils/validators/buzzer-validator');
+  currentCallback = null;
+
+const BUZZER =
+  new (require('./../../utils/components/buzzer.component'))();
 
 $('#modal-new-variable').on('hidden.bs.modal', () => {
   let new_variable = $('#new-variable').val().replace(/\s/g, '');
@@ -77,7 +79,7 @@ document
       if (current_test == 'test_1') {
         let validate_code = utils.esprimaValidation(code);
         if (validate_code !== 'Error') {
-          validate_result_code = validator.buzzer(
+          validate_result_code = BUZZER.validate(
             validate_code.body,
             validate_result_code,
           );
@@ -146,7 +148,7 @@ document
       if (current_test == 'test_2') {
         let validate_code = utils.esprimaValidation(code);
         if (validate_code !== 'Error') {
-          validate_result_code = validator.buzzer(
+          validate_result_code = BUZZER.validate(
             validate_code.body,
             validate_result_code,
           );
