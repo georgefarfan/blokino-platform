@@ -1,0 +1,553 @@
+{
+  "DEVICES": {
+    "LIST": "LIST DEVICES",
+    "BOARDS": "Arduino",
+    "ACTIONS": {
+        "SETUP": "Setup"
+    }
+  },
+  "COMMON": {
+    "SELECT": "Select",
+    "ACCEPT": "Agree",
+    "CANCEL": "Cancel",
+    "CLOSE": "Close",
+    "GO": "Go"
+  },
+  "CHALLENGES": {
+    "SECTIONS": {
+      "BEGINNERS": {
+        "LABEL": "Beginners"
+      },
+      "MIDDLE": {
+        "LABEL": "Intermediate"
+      },
+      "ADVANCED": {
+        "LABEL": "Advanced"
+      }
+    },
+    "LED": {
+      "TITLE": "Led",
+      "DESCRIPTION": "This is a challeges with leds and board. You use your knowledges for resolve tasks.",
+      "TASKS":{
+        "SUMMARY": "Before starting the challenge, the LEDs that will be used in the different tests must be created. To create them, you must first create the variables where the LEDs will be saved. To create a variable you must use the <strong>Create Variable</strong> functional block and the names of the variables must be the following: <strong>led_1</strong>, <strong>led_2</strong> and <strong >led_3</strong>. <br> All LEDs must have a <strong>pin</strong> number that refers to the <strong>dupont</strong> cable that will be connected to the Arduino board. To assign the pins to the LEDs, you must use the <strong>Create LED</strong> functional block. The input numbers must be as follows: for <strong>led_1</strong> you must use 10, >led_2</strong> use input number 11 and for <strong>led_3</strong> use input number 12.</p>",
+        "FIRST": {
+          "TITLE": "First task",
+          "SUMMARY": "Dare to flash an LED on your Arduino device.",
+          "STEPS":  {
+            "TITLE":"<strong>Consigna</strong>",
+            "SUMMARY": " <i class='far fa-quote-left icon-link'></i>Animate a hacer parpadear un LED en tu dispositivo Arduino. El LED que se debe hacer parpadear es el <strong>led_1</strong> con un <u>tiempo de 2 segundos</u>.<i class='far fa-quote-right icon-link'></i> >",
+            "EXTRA": "<p class='mt-1'> <i class='far fa-info-circle icon-link'></i><u>Pista</u>: Sabías que para hacer parpadear un LED, se debe crear un led con un nombre, número de entrada y un tiempo.</p"
+          }
+        },
+        "SECOND":{
+          "TITLE": "Second task",
+          "SUMMARY": "Animate flashing 3 LEDs in order.",
+          "STEPS":  {
+            "TITLE":"<strong>Consigna</strong>",
+            "SUMMARY": "<p><strong>Consigna</strong>:<i class='far fa-quote-left icon-link'></i> Animate hacer parpadear 3 LEDs en el siguiente orden. El orden es el siguiente:<br /> - Hacer parpadear al <strong>led_1</strong> con un <u>tiempo de 2 segundos</u>. <br /> - Hacer parpadear al <strong>led_2</strong> con un <u>tiempo de 3 milisegundos</u>.<br /> - Hacer parpadear al <strong>led_3</strong> con un <u>tiempo de 1 milisegundo</u>.<i class='far fa-quote-right icon-link'></i></p>",
+            "EXTRA": "<p class='mt-1'><i class='far fa-info-circle icon-link'></i><u>Pista</u>: Sabías que para hacer parpadear un LED, se debe crear un led con un nombre y número de entrada.</p>"  
+          }
+        },
+        "THIRD": {
+          "TITLE": "Third task",
+          "SUMMARY": "Animate flashing 3 LEDs in order and with different interval times.",
+          "STEPS": {
+            "TITLE":"<strong>Consigna</strong>",
+            "SUMMARY": " <p><strong>Consigna</strong>:<i class='far fa-quote-left icon-link'></i> Animate hacer parpadear 3 LEDs: <br /> - Hacer parpadear al <strong>led_1</strong> <u>cada 1 segundo</u>. <br /> - Hacer parpadear al <strong>led_2</strong> <u>cada 1 milisegundo</u>.<br /> - Hacer parpadear al <strong>led_3</strong> <u>cada 3 milisegundos</u>.<br /> En esta prueba se pueden usar <strong>PROCEDIMIENTOS</strong>.<i class='far fa-quote-right icon-link'></i></p>",
+            "EXTRA": "<p class='mt-1'><i class='far fa-info-circle icon-link'></i><u>Pista</u>:Se pueden crear nuevas acciones en Procedimientos definiendo nuevos bloques que incluyan otras acciones. Para crear procedimientos, puedes usar el bloque <strong>Crear Procedimiento</strong>.</p>"          
+          }
+        }
+      }
+    },
+    "LED_RGB": {
+      "TITLE": "Led RGB",
+      "DESCRIPTION": "This is a challeges with leds and board. You use your knowledges for resolve tasks.",
+      "TASKS":{
+        "SUMMARY": "Before starting the challenge, the LEDs that will be used in the different tests must be created. To create them, you must first create the variables where the LEDs will be saved. To create a variable you must use the <strong>Create Variable</strong> functional block and the names of the variables must be the following: <strong>led_1</strong>, <strong>led_2</strong> and <strong >led_3</strong>. <br> All LEDs must have a <strong>pin</strong> number that refers to the <strong>dupont</strong> cable that will be connected to the Arduino board. To assign the pins to the LEDs, you must use the <strong>Create LED</strong> functional block. The input numbers must be as follows: for <strong>led_1</strong> you must use 10, >led_2</strong> use input number 11 and for <strong>led_3</strong> use input number 12.</p>",
+        "FIRST": {
+          "TITLE": "First task",
+          "SUMMARY": "Dare to flash an LED on your Arduino device.",
+          "STEPS":  {
+            "TITLE":"<strong>Consigna</strong>",
+            "SUMMARY": " <i class='far fa-quote-left icon-link'></i>Animate a hacer parpadear un LED en tu dispositivo Arduino. El LED que se debe hacer parpadear es el <strong>led_1</strong> con un <u>tiempo de 2 segundos</u>.<i class='far fa-quote-right icon-link'></i> >",
+            "EXTRA": "<p class='mt-1'> <i class='far fa-info-circle icon-link'></i><u>Pista</u>: Sabías que para hacer parpadear un LED, se debe crear un led con un nombre, número de entrada y un tiempo.</p"
+          }
+        } 
+      }
+    },
+    "BUTTON": {
+      "TITLE": "Button",
+      "DESCRIPTION": "This is a challeges with leds and board. You use your knowledges for resolve tasks.",
+      "TASKS":{
+        "SUMMARY": "Before starting the challenge, the LEDs that will be used in the different tests must be created. To create them, you must first create the variables where the LEDs will be saved. To create a variable you must use the <strong>Create Variable</strong> functional block and the names of the variables must be the following: <strong>led_1</strong>, <strong>led_2</strong> and <strong >led_3</strong>. <br> All LEDs must have a <strong>pin</strong> number that refers to the <strong>dupont</strong> cable that will be connected to the Arduino board. To assign the pins to the LEDs, you must use the <strong>Create LED</strong> functional block. The input numbers must be as follows: for <strong>led_1</strong> you must use 10, >led_2</strong> use input number 11 and for <strong>led_3</strong> use input number 12.</p>",
+        "FIRST": {
+          "TITLE": "First task",
+          "SUMMARY": "Dare to flash an LED on your Arduino device.",
+          "STEPS":  {
+            "TITLE":"<strong>Consigna</strong>",
+            "SUMMARY": " <i class='far fa-quote-left icon-link'></i>Animate a hacer parpadear un LED en tu dispositivo Arduino. El LED que se debe hacer parpadear es el <strong>led_1</strong> con un <u>tiempo de 2 segundos</u>.<i class='far fa-quote-right icon-link'></i> >",
+            "EXTRA": "<p class='mt-1'> <i class='far fa-info-circle icon-link'></i><u>Pista</u>: Sabías que para hacer parpadear un LED, se debe crear un led con un nombre, número de entrada y un tiempo.</p"
+          }
+        } 
+      }
+    },
+    "SWITCH": {
+      "TITLE": "Switch",
+      "DESCRIPTION": "This is a challeges with leds and board. You use your knowledges for resolve tasks.",
+      "TASKS":{
+        "SUMMARY": "Before starting the challenge, the LEDs that will be used in the different tests must be created. To create them, you must first create the variables where the LEDs will be saved. To create a variable you must use the <strong>Create Variable</strong> functional block and the names of the variables must be the following: <strong>led_1</strong>, <strong>led_2</strong> and <strong >led_3</strong>. <br> All LEDs must have a <strong>pin</strong> number that refers to the <strong>dupont</strong> cable that will be connected to the Arduino board. To assign the pins to the LEDs, you must use the <strong>Create LED</strong> functional block. The input numbers must be as follows: for <strong>led_1</strong> you must use 10, >led_2</strong> use input number 11 and for <strong>led_3</strong> use input number 12.</p>",
+        "FIRST": {
+          "TITLE": "First task",
+          "SUMMARY": "Dare to flash an LED on your Arduino device.",
+          "STEPS":  {
+            "TITLE":"<strong>Consigna</strong>",
+            "SUMMARY": " <i class='far fa-quote-left icon-link'></i>Animate a hacer parpadear un LED en tu dispositivo Arduino. El LED que se debe hacer parpadear es el <strong>led_1</strong> con un <u>tiempo de 2 segundos</u>.<i class='far fa-quote-right icon-link'></i> >",
+            "EXTRA": "<p class='mt-1'> <i class='far fa-info-circle icon-link'></i><u>Pista</u>: Sabías que para hacer parpadear un LED, se debe crear un led con un nombre, número de entrada y un tiempo.</p"
+          }
+        } 
+      }
+    },
+    "BUMPER": {
+      "TITLE": "Bumper",
+      "DESCRIPTION": "This is a challeges with leds and board. You use your knowledges for resolve tasks.",
+      "TASKS":{
+        "SUMMARY": "Before starting the challenge, the LEDs that will be used in the different tests must be created. To create them, you must first create the variables where the LEDs will be saved. To create a variable you must use the <strong>Create Variable</strong> functional block and the names of the variables must be the following: <strong>led_1</strong>, <strong>led_2</strong> and <strong >led_3</strong>. <br> All LEDs must have a <strong>pin</strong> number that refers to the <strong>dupont</strong> cable that will be connected to the Arduino board. To assign the pins to the LEDs, you must use the <strong>Create LED</strong> functional block. The input numbers must be as follows: for <strong>led_1</strong> you must use 10, >led_2</strong> use input number 11 and for <strong>led_3</strong> use input number 12.</p>",
+        "FIRST": {
+          "TITLE": "First task",
+          "SUMMARY": "Dare to flash an LED on your Arduino device.",
+          "STEPS":  {
+            "TITLE":"<strong>Consigna</strong>",
+            "SUMMARY": " <i class='far fa-quote-left icon-link'></i>Animate a hacer parpadear un LED en tu dispositivo Arduino. El LED que se debe hacer parpadear es el <strong>led_1</strong> con un <u>tiempo de 2 segundos</u>.<i class='far fa-quote-right icon-link'></i> >",
+            "EXTRA": "<p class='mt-1'> <i class='far fa-info-circle icon-link'></i><u>Pista</u>: Sabías que para hacer parpadear un LED, se debe crear un led con un nombre, número de entrada y un tiempo.</p"
+          }
+        } 
+      }
+    },
+    "LCD": {
+      "TITLE": "LCD",
+      "DESCRIPTION": "This is a challeges with leds and board. You use your knowledges for resolve tasks.",
+      "TASKS":{
+        "SUMMARY": "Before starting the challenge, the LEDs that will be used in the different tests must be created. To create them, you must first create the variables where the LEDs will be saved. To create a variable you must use the <strong>Create Variable</strong> functional block and the names of the variables must be the following: <strong>led_1</strong>, <strong>led_2</strong> and <strong >led_3</strong>. <br> All LEDs must have a <strong>pin</strong> number that refers to the <strong>dupont</strong> cable that will be connected to the Arduino board. To assign the pins to the LEDs, you must use the <strong>Create LED</strong> functional block. The input numbers must be as follows: for <strong>led_1</strong> you must use 10, >led_2</strong> use input number 11 and for <strong>led_3</strong> use input number 12.</p>",
+        "FIRST": {
+          "TITLE": "First task",
+          "SUMMARY": "Dare to flash an LED on your Arduino device.",
+          "STEPS":  {
+            "TITLE":"<strong>Consigna</strong>",
+            "SUMMARY": " <i class='far fa-quote-left icon-link'></i>Animate a hacer parpadear un LED en tu dispositivo Arduino. El LED que se debe hacer parpadear es el <strong>led_1</strong> con un <u>tiempo de 2 segundos</u>.<i class='far fa-quote-right icon-link'></i> >",
+            "EXTRA": "<p class='mt-1'> <i class='far fa-info-circle icon-link'></i><u>Pista</u>: Sabías que para hacer parpadear un LED, se debe crear un led con un nombre, número de entrada y un tiempo.</p"
+          }
+        } 
+      }
+    },
+    "POTENTIOMETER": {
+      "TITLE": "Potentiometer",
+      "DESCRIPTION": "This is a challeges with leds and board. You use your knowledges for resolve tasks.",
+      "TASKS":{
+        "SUMMARY": "Before starting the challenge, the LEDs that will be used in the different tests must be created. To create them, you must first create the variables where the LEDs will be saved. To create a variable you must use the <strong>Create Variable</strong> functional block and the names of the variables must be the following: <strong>led_1</strong>, <strong>led_2</strong> and <strong >led_3</strong>. <br> All LEDs must have a <strong>pin</strong> number that refers to the <strong>dupont</strong> cable that will be connected to the Arduino board. To assign the pins to the LEDs, you must use the <strong>Create LED</strong> functional block. The input numbers must be as follows: for <strong>led_1</strong> you must use 10, >led_2</strong> use input number 11 and for <strong>led_3</strong> use input number 12.</p>",
+        "FIRST": {
+          "TITLE": "First task",
+          "SUMMARY": "Dare to flash an LED on your Arduino device.",
+          "STEPS":  {
+            "TITLE":"<strong>Consigna</strong>",
+            "SUMMARY": " <i class='far fa-quote-left icon-link'></i>Animate a hacer parpadear un LED en tu dispositivo Arduino. El LED que se debe hacer parpadear es el <strong>led_1</strong> con un <u>tiempo de 2 segundos</u>.<i class='far fa-quote-right icon-link'></i> >",
+            "EXTRA": "<p class='mt-1'> <i class='far fa-info-circle icon-link'></i><u>Pista</u>: Sabías que para hacer parpadear un LED, se debe crear un led con un nombre, número de entrada y un tiempo.</p"
+          }
+        } 
+      }
+    },
+    "JOYSTICK": {
+      "TITLE": "Joystick",
+      "DESCRIPTION": "This is a challeges with leds and board. You use your knowledges for resolve tasks.",
+      "TASKS":{
+        "SUMMARY": "Before starting the challenge, the LEDs that will be used in the different tests must be created. To create them, you must first create the variables where the LEDs will be saved. To create a variable you must use the <strong>Create Variable</strong> functional block and the names of the variables must be the following: <strong>led_1</strong>, <strong>led_2</strong> and <strong >led_3</strong>. <br> All LEDs must have a <strong>pin</strong> number that refers to the <strong>dupont</strong> cable that will be connected to the Arduino board. To assign the pins to the LEDs, you must use the <strong>Create LED</strong> functional block. The input numbers must be as follows: for <strong>led_1</strong> you must use 10, >led_2</strong> use input number 11 and for <strong>led_3</strong> use input number 12.</p>",
+        "FIRST": {
+          "TITLE": "First task",
+          "SUMMARY": "Dare to flash an LED on your Arduino device.",
+          "STEPS":  {
+            "TITLE":"<strong>Consigna</strong>",
+            "SUMMARY": " <i class='far fa-quote-left icon-link'></i>Animate a hacer parpadear un LED en tu dispositivo Arduino. El LED que se debe hacer parpadear es el <strong>led_1</strong> con un <u>tiempo de 2 segundos</u>.<i class='far fa-quote-right icon-link'></i> >",
+            "EXTRA": "<p class='mt-1'> <i class='far fa-info-circle icon-link'></i><u>Pista</u>: Sabías que para hacer parpadear un LED, se debe crear un led con un nombre, número de entrada y un tiempo.</p"
+          }
+        } 
+      }
+    },
+    "BUZZER": {
+      "TITLE": "Buzzer",
+      "DESCRIPTION": "This is a challeges with leds and board. You use your knowledges for resolve tasks.",
+      "TASKS":{
+        "SUMMARY": "Before starting the challenge, the LEDs that will be used in the different tests must be created. To create them, you must first create the variables where the LEDs will be saved. To create a variable you must use the <strong>Create Variable</strong> functional block and the names of the variables must be the following: <strong>led_1</strong>, <strong>led_2</strong> and <strong >led_3</strong>. <br> All LEDs must have a <strong>pin</strong> number that refers to the <strong>dupont</strong> cable that will be connected to the Arduino board. To assign the pins to the LEDs, you must use the <strong>Create LED</strong> functional block. The input numbers must be as follows: for <strong>led_1</strong> you must use 10, >led_2</strong> use input number 11 and for <strong>led_3</strong> use input number 12.</p>",
+        "FIRST": {
+          "TITLE": "First task",
+          "SUMMARY": "Dare to flash an LED on your Arduino device.",
+          "STEPS":  {
+            "TITLE":"<strong>Consigna</strong>",
+            "SUMMARY": " <i class='far fa-quote-left icon-link'></i>Animate a hacer parpadear un LED en tu dispositivo Arduino. El LED que se debe hacer parpadear es el <strong>led_1</strong> con un <u>tiempo de 2 segundos</u>.<i class='far fa-quote-right icon-link'></i> >",
+            "EXTRA": "<p class='mt-1'> <i class='far fa-info-circle icon-link'></i><u>Pista</u>: Sabías que para hacer parpadear un LED, se debe crear un led con un nombre, número de entrada y un tiempo.</p"
+          }
+        } 
+      }
+    },
+    "MATRIX_LED": {
+      "TITLE": "Matrix LED",
+      "DESCRIPTION": "This is a challeges with leds and board. You use your knowledges for resolve tasks.",
+      "TASKS":{
+        "SUMMARY": "Before starting the challenge, the LEDs that will be used in the different tests must be created. To create them, you must first create the variables where the LEDs will be saved. To create a variable you must use the <strong>Create Variable</strong> functional block and the names of the variables must be the following: <strong>led_1</strong>, <strong>led_2</strong> and <strong >led_3</strong>. <br> All LEDs must have a <strong>pin</strong> number that refers to the <strong>dupont</strong> cable that will be connected to the Arduino board. To assign the pins to the LEDs, you must use the <strong>Create LED</strong> functional block. The input numbers must be as follows: for <strong>led_1</strong> you must use 10, >led_2</strong> use input number 11 and for <strong>led_3</strong> use input number 12.</p>",
+        "FIRST": {
+          "TITLE": "First task",
+          "SUMMARY": "Dare to flash an LED on your Arduino device.",
+          "STEPS":  {
+            "TITLE":"<strong>Consigna</strong>",
+            "SUMMARY": " <i class='far fa-quote-left icon-link'></i>Animate a hacer parpadear un LED en tu dispositivo Arduino. El LED que se debe hacer parpadear es el <strong>led_1</strong> con un <u>tiempo de 2 segundos</u>.<i class='far fa-quote-right icon-link'></i> >",
+            "EXTRA": "<p class='mt-1'> <i class='far fa-info-circle icon-link'></i><u>Pista</u>: Sabías que para hacer parpadear un LED, se debe crear un led con un nombre, número de entrada y un tiempo.</p"
+          }
+        } 
+      }
+    },
+    "SERVO_MOTOR": {
+      "TITLE": "Servo motor",
+      "DESCRIPTION": "This is a challeges with leds and board. You use your knowledges for resolve tasks.",
+      "TASKS":{
+        "SUMMARY": "Before starting the challenge, the LEDs that will be used in the different tests must be created. To create them, you must first create the variables where the LEDs will be saved. To create a variable you must use the <strong>Create Variable</strong> functional block and the names of the variables must be the following: <strong>led_1</strong>, <strong>led_2</strong> and <strong >led_3</strong>. <br> All LEDs must have a <strong>pin</strong> number that refers to the <strong>dupont</strong> cable that will be connected to the Arduino board. To assign the pins to the LEDs, you must use the <strong>Create LED</strong> functional block. The input numbers must be as follows: for <strong>led_1</strong> you must use 10, >led_2</strong> use input number 11 and for <strong>led_3</strong> use input number 12.</p>",
+        "FIRST": {
+          "TITLE": "First task",
+          "SUMMARY": "Dare to flash an LED on your Arduino device.",
+          "STEPS":  {
+            "TITLE":"<strong>Consigna</strong>",
+            "SUMMARY": " <i class='far fa-quote-left icon-link'></i>Animate a hacer parpadear un LED en tu dispositivo Arduino. El LED que se debe hacer parpadear es el <strong>led_1</strong> con un <u>tiempo de 2 segundos</u>.<i class='far fa-quote-right icon-link'></i> >",
+            "EXTRA": "<p class='mt-1'> <i class='far fa-info-circle icon-link'></i><u>Pista</u>: Sabías que para hacer parpadear un LED, se debe crear un led con un nombre, número de entrada y un tiempo.</p"
+          }
+        } 
+      }
+    },
+    "MOTION": {
+      "TITLE": "Motion",
+      "DESCRIPTION": "This is a challeges with leds and board. You use your knowledges for resolve tasks.",
+      "TASKS":{
+        "SUMMARY": "Before starting the challenge, the LEDs that will be used in the different tests must be created. To create them, you must first create the variables where the LEDs will be saved. To create a variable you must use the <strong>Create Variable</strong> functional block and the names of the variables must be the following: <strong>led_1</strong>, <strong>led_2</strong> and <strong >led_3</strong>. <br> All LEDs must have a <strong>pin</strong> number that refers to the <strong>dupont</strong> cable that will be connected to the Arduino board. To assign the pins to the LEDs, you must use the <strong>Create LED</strong> functional block. The input numbers must be as follows: for <strong>led_1</strong> you must use 10, >led_2</strong> use input number 11 and for <strong>led_3</strong> use input number 12.</p>",
+        "FIRST": {
+          "TITLE": "First task",
+          "SUMMARY": "Dare to flash an LED on your Arduino device.",
+          "STEPS":  {
+            "TITLE":"<strong>Consigna</strong>",
+            "SUMMARY": " <i class='far fa-quote-left icon-link'></i>Animate a hacer parpadear un LED en tu dispositivo Arduino. El LED que se debe hacer parpadear es el <strong>led_1</strong> con un <u>tiempo de 2 segundos</u>.<i class='far fa-quote-right icon-link'></i> >",
+            "EXTRA": "<p class='mt-1'> <i class='far fa-info-circle icon-link'></i><u>Pista</u>: Sabías que para hacer parpadear un LED, se debe crear un led con un nombre, número de entrada y un tiempo.</p"
+          }
+        } 
+      }
+    },
+    "PROXIMITY": {
+      "TITLE": "Proximity",
+      "DESCRIPTION": "This is a challeges with leds and board. You use your knowledges for resolve tasks.",
+      "TASKS":{
+        "SUMMARY": "Before starting the challenge, the LEDs that will be used in the different tests must be created. To create them, you must first create the variables where the LEDs will be saved. To create a variable you must use the <strong>Create Variable</strong> functional block and the names of the variables must be the following: <strong>led_1</strong>, <strong>led_2</strong> and <strong >led_3</strong>. <br> All LEDs must have a <strong>pin</strong> number that refers to the <strong>dupont</strong> cable that will be connected to the Arduino board. To assign the pins to the LEDs, you must use the <strong>Create LED</strong> functional block. The input numbers must be as follows: for <strong>led_1</strong> you must use 10, >led_2</strong> use input number 11 and for <strong>led_3</strong> use input number 12.</p>",
+        "FIRST": {
+          "TITLE": "First task",
+          "SUMMARY": "Dare to flash an LED on your Arduino device.",
+          "STEPS":  {
+            "TITLE":"<strong>Consigna</strong>",
+            "SUMMARY": " <i class='far fa-quote-left icon-link'></i>Animate a hacer parpadear un LED en tu dispositivo Arduino. El LED que se debe hacer parpadear es el <strong>led_1</strong> con un <u>tiempo de 2 segundos</u>.<i class='far fa-quote-right icon-link'></i> >",
+            "EXTRA": "<p class='mt-1'> <i class='far fa-info-circle icon-link'></i><u>Pista</u>: Sabías que para hacer parpadear un LED, se debe crear un led con un nombre, número de entrada y un tiempo.</p"
+          }
+        } 
+      }
+    },
+    "KEY_PAD": {
+      "TITLE": "Key pad",
+      "DESCRIPTION": "This is a challeges with leds and board. You use your knowledges for resolve tasks.",
+      "TASKS":{
+        "SUMMARY": "Before starting the challenge, the LEDs that will be used in the different tests must be created. To create them, you must first create the variables where the LEDs will be saved. To create a variable you must use the <strong>Create Variable</strong> functional block and the names of the variables must be the following: <strong>led_1</strong>, <strong>led_2</strong> and <strong >led_3</strong>. <br> All LEDs must have a <strong>pin</strong> number that refers to the <strong>dupont</strong> cable that will be connected to the Arduino board. To assign the pins to the LEDs, you must use the <strong>Create LED</strong> functional block. The input numbers must be as follows: for <strong>led_1</strong> you must use 10, >led_2</strong> use input number 11 and for <strong>led_3</strong> use input number 12.</p>",
+        "FIRST": {
+          "TITLE": "First task",
+          "SUMMARY": "Dare to flash an LED on your Arduino device.",
+          "STEPS":  {
+            "TITLE":"<strong>Consigna</strong>",
+            "SUMMARY": " <i class='far fa-quote-left icon-link'></i>Animate a hacer parpadear un LED en tu dispositivo Arduino. El LED que se debe hacer parpadear es el <strong>led_1</strong> con un <u>tiempo de 2 segundos</u>.<i class='far fa-quote-right icon-link'></i> >",
+            "EXTRA": "<p class='mt-1'> <i class='far fa-info-circle icon-link'></i><u>Pista</u>: Sabías que para hacer parpadear un LED, se debe crear un led con un nombre, número de entrada y un tiempo.</p"
+          }
+        } 
+      }
+    },
+    "MOTOR": {
+      "TITLE": "Motor",
+      "DESCRIPTION": "This is a challeges with leds and board. You use your knowledges for resolve tasks.",
+      "TASKS":{
+        "SUMMARY": "Before starting the challenge, the LEDs that will be used in the different tests must be created. To create them, you must first create the variables where the LEDs will be saved. To create a variable you must use the <strong>Create Variable</strong> functional block and the names of the variables must be the following: <strong>led_1</strong>, <strong>led_2</strong> and <strong >led_3</strong>. <br> All LEDs must have a <strong>pin</strong> number that refers to the <strong>dupont</strong> cable that will be connected to the Arduino board. To assign the pins to the LEDs, you must use the <strong>Create LED</strong> functional block. The input numbers must be as follows: for <strong>led_1</strong> you must use 10, >led_2</strong> use input number 11 and for <strong>led_3</strong> use input number 12.</p>",
+        "FIRST": {
+          "TITLE": "First task",
+          "SUMMARY": "Dare to flash an LED on your Arduino device.",
+          "STEPS":  {
+            "TITLE":"<strong>Consigna</strong>",
+            "SUMMARY": " <i class='far fa-quote-left icon-link'></i>Animate a hacer parpadear un LED en tu dispositivo Arduino. El LED que se debe hacer parpadear es el <strong>led_1</strong> con un <u>tiempo de 2 segundos</u>.<i class='far fa-quote-right icon-link'></i> >",
+            "EXTRA": "<p class='mt-1'> <i class='far fa-info-circle icon-link'></i><u>Pista</u>: Sabías que para hacer parpadear un LED, se debe crear un led con un nombre, número de entrada y un tiempo.</p"
+          }
+        } 
+      }
+    }
+  },
+  "SIDEBAR" :{
+    "HOME": "Home",
+    "CHALLENGES": "Challenges",
+    "EDITOR": "Editor"
+  },
+  "BREADCRUMBS": {
+    "DASHBOARD": {
+      "LABEL": "Home"
+    },
+    "EDITOR": {
+      "LABEL": "Editor"
+    },
+    "FULL_EDITOR": {
+      "LABEL": "Blokino editor"
+    },
+    "CHALLENGES": {
+      "LABEL": "Challenges"
+    },
+    "LED": {
+      "LABEL": "Led",
+      "TASKS": {
+        "FIRST": {
+          "TITLE": "First task"
+        },
+        "SECOND": {
+          "TITLE": "Second task"
+        },
+        "THIRD": {
+          "TITLE": "Third task"
+        }
+      }
+    },
+    "LED_RGB": {
+      "LABEL": "Led RGB",
+      "TASKS": {
+        "FIRST": {
+          "TITLE": "First task"
+        },
+        "SECOND": {
+          "TITLE": "Second task"
+        },
+        "THIRD": {
+          "TITLE": "Third task"
+        }
+      }
+    }
+    ,
+    "SWITCH": {
+      "LABEL": "Switch",
+      "TASKS": {
+        "FIRST": {
+          "TITLE": "First task"
+        },
+        "SECOND": {
+          "TITLE": "Second task"
+        },
+        "THIRD": {
+          "TITLE": "Third task"
+        }
+      }
+    } ,
+    "BUMPER": {
+      "LABEL": "Bumper",
+      "TASKS": {
+        "FIRST": {
+          "TITLE": "First task"
+        },
+        "SECOND": {
+          "TITLE": "Second task"
+        },
+        "THIRD": {
+          "TITLE": "Third task"
+        }
+      }
+    },
+    "LCD": {
+      "LABEL": "Lcd",
+      "TASKS": {
+        "FIRST": {
+          "TITLE": "First task"
+        },
+        "SECOND": {
+          "TITLE": "Second task"
+        },
+        "THIRD": {
+          "TITLE": "Third task"
+        }
+      }
+    },
+    "POTENTIOMETER": {
+      "LABEL": "Potentiometer",
+      "TASKS": {
+        "FIRST": {
+          "TITLE": "First task"
+        },
+        "SECOND": {
+          "TITLE": "Second task"
+        },
+        "THIRD": {
+          "TITLE": "Third task"
+        }
+      }
+    },
+    "JOYSTICK": {
+      "LABEL": "Joystick",
+      "TASKS": {
+        "FIRST": {
+          "TITLE": "First task"
+        },
+        "SECOND": {
+          "TITLE": "Second task"
+        },
+        "THIRD": {
+          "TITLE": "Third task"
+        }
+      }
+    },
+    "BUZZER": {
+      "LABEL": "Buzzer",
+      "TASKS": {
+        "FIRST": {
+          "TITLE": "First task"
+        },
+        "SECOND": {
+          "TITLE": "Second task"
+        },
+        "THIRD": {
+          "TITLE": "Third task"
+        }
+      }
+    }
+    ,
+    "MATRIX_LED": {
+      "LABEL": "Matrix LED",
+      "TASKS": {
+        "FIRST": {
+          "TITLE": "First task"
+        },
+        "SECOND": {
+          "TITLE": "Second task"
+        },
+        "THIRD": {
+          "TITLE": "Third task"
+        }
+      }
+    },
+    "SERVO_MOTOR": {
+      "LABEL": "Servo motor",
+      "TASKS": {
+        "FIRST": {
+          "TITLE": "First task"
+        },
+        "SECOND": {
+          "TITLE": "Second task"
+        },
+        "THIRD": {
+          "TITLE": "Third task"
+        }
+      }
+    },
+    "MOTION": {
+      "LABEL": "Motion",
+      "TASKS": {
+        "FIRST": {
+          "TITLE": "First task"
+        },
+        "SECOND": {
+          "TITLE": "Second task"
+        },
+        "THIRD": {
+          "TITLE": "Third task"
+        }
+      }
+    },
+    "PROXIMITY": {
+      "LABEL": "Proximity",
+      "TASKS": {
+        "FIRST": {
+          "TITLE": "First task"
+        },
+        "SECOND": {
+          "TITLE": "Second task"
+        },
+        "THIRD": {
+          "TITLE": "Third task"
+        }
+      }
+    },
+    "KEY_PAD": {
+      "LABEL": "Key pad",
+      "TASKS": {
+        "FIRST": {
+          "TITLE": "First task"
+        },
+        "SECOND": {
+          "TITLE": "Second task"
+        },
+        "THIRD": {
+          "TITLE": "Third task"
+        }
+      }
+    },
+    "MOTOR": {
+      "LABEL": "Motor",
+      "TASKS": {
+        "FIRST": {
+          "TITLE": "First task"
+        },
+        "SECOND": {
+          "TITLE": "Second task"
+        },
+        "THIRD": {
+          "TITLE": "Third task"
+        }
+      }
+    }
+    
+    
+    ,
+    "BUTTON": {
+      "LABEL": "Button",
+      "TASKS": {
+        "FIRST": {
+          "TITLE": "First task"
+        },
+        "SECOND": {
+          "TITLE": "Second task"
+        },
+        "THIRD": {
+          "TITLE": "Third task"
+        }
+      }
+    }
+  },
+  "DASHBOARD": {
+    "TITLE": "You leard to hardware programming with Blokino",
+    "CONTENT": {
+      "CHALLENGES": "Before using the platform freely, it is recommended to do the challenges, which indicate how to you must use Blokino and its functional blocks."
+    }
+  }, 
+  "EDITOR": {
+    "ACTIONS": {
+      "GENERATE": {
+        "TITLE": "Generate"
+      },
+      "DEVICES": {
+        "TITLE": "Devices"
+      },
+      "EXECUTE": {
+        "TITLE": "Execute"
+      },
+      "SETUP_DEVICE": {
+        "TITLE": "Setup device"
+      },
+      "IMPORT_CODE": {
+        "TITLE": "Import code"
+      },
+      "EXPORT_CODE": {
+        "TITLE": "Export code"
+      }
+    }
+  },
+  "FULL_EDITOR": {
+
+  }
+  
+ }

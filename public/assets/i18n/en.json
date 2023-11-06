@@ -1,0 +1,30 @@
+{
+  "DEVICES": {
+    "LIST": "LIST DEVICES",
+    "BOARDS": "Arduino"
+  },
+  "COMMON": {
+    "SELECT": "Select",
+    "ACCEPT": "Agree",
+    "CANCEL": "Cancel",
+    "CLOSE": "Close",
+    "GO": "Go"
+  },
+  "CHALLENGES": {
+    "LED": {
+      "TITLE": "Led",
+      "DESCRIPTION": "This is a challeges with leds and board. You use your knowledges for resolve tasks."
+    }
+  },
+  "SIDEBAR" :{
+    "HOME": "Home",
+    "CHALLENGES": "Challenges",
+    "EDITOR": "Editor"
+  },
+  "DASHBOARD": {
+    "TITLE": "You leard to hardware programming with Blokino",
+    "CONTENT": {
+      "CHALLENGES": "Before using the platform freely, it is recommended to do the challenges, which indicate how to you must use Blokino and its functional blocks."
+    }
+  }
+}

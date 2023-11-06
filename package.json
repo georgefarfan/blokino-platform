@@ -1,0 +1,151 @@
+{
+  "name": "blokino-platform",
+  "version": "0.0.5",
+  "private": true,
+  "description": "Blokino - Web environment to program physical objects.",
+  "main": "public/electron.js",
+  "homepage": "./",
+  "email": "jorge.farfan1990@gmail.com",
+  "dependencies": {
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@mui/icons-material": "^5.14.15",
+    "@mui/material": "^5.14.15",
+    "@mui/styles": "^5.14.16",
+    "@reduxjs/toolkit": "^1.9.7",
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/user-event": "^12.1.10",
+    "avrgirl-arduino": "^5.0.1",
+    "blockly": "^10.2.2",
+    "bootstrap": "^4.5.2",
+    "chalk": "^2.4.2",
+    "code-mirror-themes": "^1.0.0",
+    "codemirror": "^5.57.0",
+    "cross-env": "^7.0.3",
+    "crypto-js": "^3.3.0",
+    "electron-is-dev": "^2.0.0",
+    "esprima": "^4.0.1",
+    "husky": "^4.3.8",
+    "i18next": "^23.6.0",
+    "internet-available": "^1.0.0",
+    "johnny-five": "^2.1.0",
+    "js-beautify": "^1.13.0",
+    "json-cycle": "^1.3.0",
+    "macos-release": "^3.0.1",
+    "moment": "^2.27.0",
+    "node-pty": "^0.10.0-beta16",
+    "oled-js": "^5.1.2",
+    "os": "^0.1.1",
+    "os-name": "^3.1.0",
+    "prettier": "^2.3.2",
+    "pretty-quick": "^3.1.1",
+    "react": "^17.0.2",
+    "react-bootstrap": "^1.6.1",
+    "react-chartjs-2": "^2.11.1",
+    "react-dom": "^17.0.2",
+    "react-hook-form": "^7.10.1",
+    "react-i18next": "^11.18.6",
+    "react-icons": "^4.2.0",
+    "react-intl": "^5.12.3",
+    "react-redux": "^7.2.9",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "4.0.3",
+    "redux": "^4.1.0",
+    "redux-saga": "^1.1.3",
+    "rxjs": "^6.6.3",
+    "serialport": "^12.0.0",
+    "sharp": "^0.26.1",
+    "sudo-prompt": "^8.2.5",
+    "web-vitals": "^1.0.1",
+    "xml-js": "^1.6.11"
+  },
+  "devDependencies": {
+    "concurrently": "^6.4.0",
+    "electron": "^27.0.2",
+    "electron-builder": "^24.6.4",
+    "electron-devtools-installer": "^3.2.0",
+    "electron-rebuild": "^3.2.9",
+    "wait-on": "^6.0.0"
+  },
+  "license": "MIT",
+  "author": "Jorge Farfan Coaguila<jorge.farfan1990@gmail.com>",
+  "keywords": [
+    "Blokino",
+    "Electron",
+    "JavaScript",
+    "Johnny-Five"
+  ],
+  "build": {
+    "appId": "Blokino-v0.0.4",
+    "extends": null, 
+    "asar": false,
+    "files": [
+      "./build/**/*",
+      "package.json",
+      "node_modules",
+      "*.js",
+      "build/static/css/*.css",
+      "build/static/css/*.css.map",
+      "build/static/js/*.js",
+      "build/static/js/*chunk.js",
+      "build/static/js/*map.js",
+      "build/static/media/*.svg",
+      "node_modules",
+      "./public/**/*",
+      "./src/**/*"
+    ],
+    "directories": {
+      "buildResources": "public/assets/**"
+    },
+    "productName": "Blokino",
+    "mac": {
+      "category": "organizer",
+      "icon": "public/icons/mac/icon.icns"
+    },
+    "dmg": {},
+    "linux": {
+      "target": [
+        "deb"
+      ],
+      "files": [
+        "!src/resources/circuits/diagrams/*",
+        "!src/resources/examples-code/*",
+        "!src/resources/installers/*",
+        "!src/resources/notes/*",
+        "!src/resources/README.md"
+      ]
+    }
+  },
+  "scripts": {
+    "start-electron": "electron . --no-sandbox",
+    "start": "react-scripts start",
+    "electron-rebuild": "electron-rebuild",
+    "react-build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "electron-dev": "concurrently \"BROWSER=none npm run start\" \"wait-on http://localhost:3000 && electron --disable-gpu .\"",
+    "star-app": "concurrently \"BROWSER=none npm run start\" \"wait-on http://localhost:3000 && electron --no-sandbox --disable-gpu .\"",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder",
+    "installer": "react-scripts build  && electron-builder --dir"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
